@@ -1,7 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
-echo "migations"
 uv run python manage.py migrate
-
-echo "runserver"
-uv run python manage.py runserver 0.0.0.0:8000
+uv run gunicorn backend.wsgi:application --bind 0.0.0.0:${PORT:-8000}
