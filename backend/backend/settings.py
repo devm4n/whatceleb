@@ -14,8 +14,6 @@ SECRET_KEY = "django-insecure-8(%s7zn848+c+9n2*hpf%su9*a5sk0@jquu3=c796z1nhxs5uj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -108,9 +106,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
 STATIC_URL = "static/"
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -127,3 +122,12 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+
+# #################################################################
+SESSION_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SECURE = True
+ALLOWED_HOSTS = ["whatceleb-backend.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://whatceleb-backend.onrender.com"]
+# #################################################################

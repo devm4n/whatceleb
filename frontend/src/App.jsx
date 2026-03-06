@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api/media/";
+const API_URL = "https://whatceleb-backend.onrender.com/api/media/";
 
 export default function App() {
   const [media, setMedia] = useState([]);
@@ -29,10 +29,10 @@ export default function App() {
   return (
     <div>
       <div className="w-screen ">
-        <h1 className="mx-auto flex place-content-center my-4">
+        <h2 className="mx-auto text-md flex place-content-center my-4">
           Guess the celeb.
-        </h1>
-        <div className="image-card mx-auto flex place-content-center w-2/12 border-4 h-full bg-zinc-400 rounded-md p-4">
+        </h2>
+        <div className="image-card mx-auto flex place-content-center w-48 border-4 h-full bg-zinc-400 rounded-md p-4">
           {media.map((item, index) => (
             <div key={index} className="flex flex-col items-center gap-4">
               <img
