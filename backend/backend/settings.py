@@ -130,4 +130,6 @@ CSRF_COOKIE_SAMESITE = "None"
 CSRF_COOKIE_SECURE = True
 ALLOWED_HOSTS = ["whatceleb-backend.onrender.com"]
 CSRF_TRUSTED_ORIGINS = ["https://whatceleb-backend.onrender.com"]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
 # #################################################################
