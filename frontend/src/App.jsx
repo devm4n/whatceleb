@@ -8,7 +8,8 @@ export default function App() {
   const [expanded, setExpanded] = useState(false);
   const [seenIds, setSeenIds] = useState([]);
 
-  const API_URL = `https://whatceleb-backend.onrender.com/api/media/?seen=${seenIds.join("")}`;
+  const API_URL = `${import.meta.env.VITE_API_URL}?seen=${seenIds.join("")}`;
+  console.log(import.meta.env.VITE_API_URL);
 
   const fetchMedia = () => {
     setLoading(true);
