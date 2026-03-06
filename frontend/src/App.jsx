@@ -43,7 +43,12 @@ export default function App() {
                 width={300}
               />
               {expanded ? (
-                <button onClick={fetchMedia}>NEXT</button>
+                <div>
+                  <h2 className="mx-auto text-md flex place-content-center my-4">
+                    {item.title}
+                  </h2>
+                  <button onClick={fetchMedia}>NEXT</button>
+                </div>
               ) : (
                 <button onClick={() => setExpanded(true)}>SHOW</button>
               )}
