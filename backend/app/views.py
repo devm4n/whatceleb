@@ -17,6 +17,11 @@ class MediaView(generics.ListCreateAPIView):
         return Response(serializer.data)
 
     def get_queryset(self):
+        seen_ids = self.request.query_params.get("seen", "")
+        seen_list = [int(i) for i in seen_ids.split(",") if i]
+        queryset = MediaModel.objects.exlude(id__in=seen_list)
+        if not queryset.exists():
+            queryset = MediaModel.objects.all()
         return MediaModel.objects.order_by("?")[:1]
 
     def get_permissions(self):

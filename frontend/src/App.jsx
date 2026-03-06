@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://whatceleb-backend.onrender.com/api/media/";
-
 export default function App() {
   const [media, setMedia] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const [seenIds, setSeenIds] = useState([]);
+
+  const API_URL = `https://whatceleb-backend.onrender.com/api/media/?seen=${seenIds.join("")}`;
 
   const fetchMedia = () => {
     setLoading(true);
@@ -20,7 +21,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchMedia();
+    fetchMedia(seenIds);
   }, []);
 
   if (loading) return <p>Loading...</p>;
