@@ -8,8 +8,8 @@ export default function App() {
   const [expanded, setExpanded] = useState(false);
   const [seenIds, setSeenIds] = useState([]);
 
-  const API_URL = `${import.meta.env.VITE_API_URL}?seen=${seenIds.join("")}`;
-  console.log(import.meta.env.VITE_API_URL);
+  // const API_URL = `${import.meta.env.VITE_API_URL}?seen=${seenIds.join("")}`;
+  const API_URL = `${import.meta.env.VITE_API_URL}`;
 
   const fetchMedia = () => {
     setLoading(true);
@@ -22,7 +22,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchMedia(seenIds);
+    fetchMedia();
   }, []);
 
   if (loading) return <p>Loading...</p>;
