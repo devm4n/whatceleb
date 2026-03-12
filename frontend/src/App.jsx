@@ -10,6 +10,7 @@ export default function App() {
 
   // const API_URL = `${import.meta.env.VITE_API_URL}?seen=${seenIds.join("")}`;
   const API_URL = `${import.meta.env.VITE_API_URL}`;
+  console.log(API_URL);
 
   const fetchMedia = () => {
     setLoading(true);
@@ -38,7 +39,7 @@ export default function App() {
           {media.map((item, index) => (
             <div key={index} className="flex flex-col items-center gap-4">
               <img
-                src={expanded ? item.image : item.thumbnail}
+                src={expanded ? item.special_image : item.special_thumbnail}
                 alt={item.title}
                 width={300}
               />
